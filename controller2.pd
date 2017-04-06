@@ -1,0 +1,64 @@
+#N canvas 0 18 877 1003 10;
+#X obj 29 324 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 135 296 pack f f f f f f;
+#X floatatom 104 260 5 0 0 0 - f1_recv -;
+#X floatatom 139 260 5 0 0 0 - f2_recv -;
+#X floatatom 175 260 5 0 0 0 - f3_recv -;
+#X floatatom 212 260 5 0 0 0 - f4_recv -;
+#X floatatom 250 260 5 0 0 0 - f5_recv -;
+#X floatatom 289 259 5 0 0 0 - f6_recv -;
+#X obj 170 56 bng 30 250 50 0 empty empty marching_sliders 0 -10 0
+10 -262144 -1 -1;
+#X msg 405 262 0 0 \, 1000 10000 20;
+#X obj 402 179 bng 30 250 50 0 empty empty computery_noises 0 -10 0
+10 -262144 -1 -1;
+#X obj 438 179 bng 30 250 50 0 empty empty empty 0 -10 0 10 -262144
+-1 -1;
+#X msg 397 285 0 0 \, 1000 60000 20;
+#X obj 268 -31 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 210 101 s f1_recv;
+#X obj 285 -5 vsl 15 128 0 30000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 227 127 s f2_recv;
+#X obj 303 15 vsl 15 128 0 30000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 245 147 s f3_recv;
+#X obj 320 36 vsl 15 128 0 30000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 262 168 s f4_recv;
+#X obj 341 58 vsl 15 128 0 30000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 283 190 s f5_recv;
+#X obj 359 79 vsl 15 128 0 30000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 301 211 s f6_recv;
+#X msg 404 309 0 0 \, 0 0 1000 \, 1000 100 2000 \, 0 0 3000;
+#X text 11 297 start/stop vline;
+#X obj 476 179 bng 30 250 50 0 empty empty empty 0 -10 0 10 -262144
+-1 -1;
+#X text -6 102 create slider based vline sequence;
+#X text 519 283 pre-written sequences;
+#X obj 115 364 laserbeam_mod2;
+#X connect 0 0 30 0;
+#X connect 1 0 30 1;
+#X connect 2 0 1 0;
+#X connect 3 0 1 1;
+#X connect 4 0 1 2;
+#X connect 5 0 1 3;
+#X connect 6 0 1 4;
+#X connect 7 0 1 5;
+#X connect 8 0 14 0;
+#X connect 9 0 30 2;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 30 2;
+#X connect 13 0 14 0;
+#X connect 15 0 16 0;
+#X connect 17 0 18 0;
+#X connect 19 0 20 0;
+#X connect 21 0 22 0;
+#X connect 23 0 24 0;
+#X connect 25 0 30 2;
+#X connect 27 0 25 0;

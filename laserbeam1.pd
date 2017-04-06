@@ -1,0 +1,183 @@
+#N canvas 894 18 877 1003 10;
+#X obj 540 562 *~;
+#X obj 477 531 phasor~;
+#X obj 540 534 phasor~;
+#X obj 610 534 phasor~;
+#X obj 539 673 *~ 0.08;
+#X obj 554 452 line~;
+#X obj 467 150 vsl 12 256 0 250 0 0 empty empty f2 0 -8 0 8 -258699
+-1 -1 0 1;
+#X obj 439 151 vsl 12 256 0 250 0 0 empty empty f1 0 -8 0 8 -258699
+-1 -1 0 1;
+#X obj 495 150 vsl 12 256 0 250 0 0 empty empty f3 0 -8 0 8 -258699
+-1 -1 0 1;
+#X obj 539 700 dac~;
+#X obj 476 485 *~;
+#X obj 540 483 *~;
+#X obj 609 483 *~;
+#X obj 643 150 vsl 12 256 0 250 0 0 empty empty l2 0 -8 0 8 -260818
+-1 -1 0 1;
+#X obj 615 150 vsl 12 256 0 250 0 0 empty empty l1 0 -8 0 8 -260818
+-1 -1 0 1;
+#X obj 671 150 vsl 12 256 0 250 0 0 empty empty l3 0 -8 0 8 -260818
+-1 -1 0 1;
+#X obj 611 509 +~;
+#X obj 541 509 +~;
+#X obj 477 508 +~;
+#X obj 554 149 vsl 12 256 500 2000 0 1 empty empty cf 0 -8 0 8 -241291
+-1 -1 0 1;
+#X msg 554 430 \$1 10;
+#X text 22 6 Forcefield and laser beam generator;
+#X text 574 566 ajf2005;
+#X obj 705 507 loadbang;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-array 1000 float 0;
+#X coords 0 -1 999 1 150 100 1;
+#X restore 685 612 graph;
+#X obj 687 578 tabwrite~ \$0-array;
+#X obj 705 468 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 539 586 cos~;
+#X obj 705 542 metro 100;
+#X obj 467 79 r fin;
+#X obj 643 82 r lin;
+#X obj 554 101 r cfin;
+#X obj 557 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 463 113 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 641 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 179 202 516 662 laserControls 1;
+#X obj 200 241 s cfin;
+#X msg 204 206 set \$1;
+#X obj 144 158 bng 30 250 50 0 empty empty reset_sliders 0 -10 0 10
+-262144 -1 -1;
+#X obj 252 158 bng 30 250 50 0 empty empty high_sliders 0 -10 0 10
+-262144 -1 -1;
+#X msg 252 189 1e+007;
+#X text 203 116 Controls;
+#X msg 144 189 0;
+#X msg 88 423 \$1 0 \, \$2 \$3 \$4 \, \$1 \$5 \$6;
+#X obj 146 66 inlet;
+#X obj 132 398 pack f f f f f f;
+#X floatatom 101 362 5 0 0 0 - - -;
+#X floatatom 136 362 5 0 0 0 - - -;
+#X floatatom 172 362 5 0 0 0 - - -;
+#X floatatom 209 362 5 0 0 0 - - -;
+#X floatatom 247 362 5 0 0 0 - - -;
+#X floatatom 286 361 5 0 0 0 - - -;
+#X obj 158 302 bng 30 250 50 0 empty empty marching_sliders 0 -10 0
+10 -262144 -1 -1;
+#X obj 318 576 s cfin;
+#X msg 170 538 set \$1;
+#X obj 170 490 snapshot~;
+#X floatatom 170 513 5 0 0 0 - - -;
+#X obj 169 465 vline~;
+#X obj 27 287 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 65 51 inlet;
+#X obj 227 518 * 3;
+#X msg 279 547 set \$1;
+#X obj 141 578 s fin;
+#X obj 187 580 s lin;
+#X obj 160 245 s fin;
+#X obj 250 242 s lin;
+#X obj 315 49 inlet;
+#X msg 254 416 1 0 \, 2000 500 2000 \, 1 1000 3000;
+#X obj 27 423 metro 100;
+#X text 13 27 start/stop vline;
+#X text 148 45 vSlider input;
+#X text 315 32 comment;
+#X connect 1 0 0 0;
+#X connect 1 0 28 0;
+#X connect 1 0 29 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 21 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 1;
+#X connect 12 0 9 2;
+#X connect 13 0 9 3;
+#X connect 14 0 9 4;
+#X connect 15 0 9 5;
+#X connect 16 0 10 0;
+#X connect 16 0 11 0;
+#X connect 16 0 12 0;
+#X connect 16 0 13 0;
+#X connect 16 0 14 0;
+#X connect 16 0 15 0;
+#X connect 18 0 26 0;
+#X connect 18 0 27 0;
+#X connect 19 0 20 0;
+#X connect 20 0 18 0;
+#X connect 20 0 24 0;
+#X connect 21 0 19 0;
+#X connect 22 0 32 0;
+#X connect 23 0 22 0;
+#X connect 24 0 25 0;
+#X connect 25 0 17 0;
+#X connect 30 0 21 0;
+#X connect 31 0 21 0;
+#X connect 32 0 19 0;
+#X restore 126 368 pd laserControls;
+#X obj 224 272 inlet;
+#X obj 144 275 inlet;
+#X obj 79 277 inlet;
+#X text 464 38 Signal input from senders(came across problem where
+slider would update but wouldnt give out number \, solved by using
+bangs on recievers);
+#X text 685 715 Display output waveform;
+#X connect 0 0 27 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 9 0;
+#X connect 4 0 9 1;
+#X connect 5 0 0 1;
+#X connect 5 0 10 0;
+#X connect 5 0 11 0;
+#X connect 5 0 12 0;
+#X connect 6 0 11 1;
+#X connect 7 0 10 1;
+#X connect 8 0 12 1;
+#X connect 10 0 18 0;
+#X connect 11 0 17 0;
+#X connect 12 0 16 0;
+#X connect 13 0 17 1;
+#X connect 14 0 18 1;
+#X connect 15 0 16 1;
+#X connect 16 0 3 0;
+#X connect 17 0 2 0;
+#X connect 18 0 1 0;
+#X connect 19 0 20 0;
+#X connect 20 0 5 0;
+#X connect 23 0 28 0;
+#X connect 26 0 23 0;
+#X connect 27 0 25 0;
+#X connect 27 0 4 0;
+#X connect 28 0 25 0;
+#X connect 29 0 7 0;
+#X connect 29 0 6 0;
+#X connect 29 0 8 0;
+#X connect 29 0 33 0;
+#X connect 30 0 14 0;
+#X connect 30 0 13 0;
+#X connect 30 0 15 0;
+#X connect 30 0 34 0;
+#X connect 31 0 19 0;
+#X connect 31 0 32 0;
+#X connect 32 0 19 0;
+#X connect 33 0 7 0;
+#X connect 33 0 6 0;
+#X connect 33 0 8 0;
+#X connect 34 0 14 0;
+#X connect 34 0 13 0;
+#X connect 34 0 15 0;
+#X connect 36 0 35 2;
+#X connect 37 0 35 1;
+#X connect 38 0 35 0;
